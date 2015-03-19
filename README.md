@@ -7,6 +7,10 @@ Runs a spark worker in a docker container
 ## Example
 
 ```bash
-docker run -d --name spark-worker --link spark-master:spark-master -p 8080:8080 -p 7077:7077 hauptmedia/spark-worker
+docker run -d \
+-e SPARK_MASTER=spark://spark-master:7077 \
+--name spark-worker \
+-p 8081:8081 \
+hauptmedia/spark-worker
 ```
 
